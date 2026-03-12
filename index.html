@@ -235,53 +235,6 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* Logo Banner - full width with side lines */
-    .logo-banner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 2.5rem;
-      width: 100%;
-    }
-    .logo-line {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      height: 2px;
-      position: relative;
-    }
-    .logo-line-left {
-      background: linear-gradient(90deg, transparent 0%, var(--border-light) 30%, var(--accent-light) 100%);
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
-    .logo-line-right {
-      background: linear-gradient(90deg, var(--accent-light) 0%, var(--border-light) 70%, transparent 100%);
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
-    .line-icon {
-      font-size: 1rem;
-      opacity: 0.45;
-      transform: translateY(-0.5px);
-      animation: iconBob 3s ease-in-out infinite;
-      filter: grayscale(0.2);
-    }
-    .line-icon:nth-child(1) { animation-delay: 0s; }
-    .line-icon:nth-child(2) { animation-delay: 0.4s; }
-    .line-icon:nth-child(3) { animation-delay: 0.8s; }
-    .line-icon:nth-child(4) { animation-delay: 1.2s; }
-    .line-icon:nth-child(5) { animation-delay: 1.6s; }
-    @keyframes iconBob {
-      0%, 100% { transform: translateY(-0.5px); opacity: 0.4; }
-      50% { transform: translateY(-5px); opacity: 0.7; }
-    }
-    @media (max-width: 640px) {
-      .line-icon { font-size: 0.8rem; }
-      .line-icon:nth-child(4), .line-icon:nth-child(5) { display: none; }
-    }
-
     /* Logo Stage Animation */
     .logo-stage {
       position: relative;
@@ -1063,26 +1016,12 @@
 <!-- ============ LOGO + ABSTRACT ============ -->
 <section class="grade-section">
   <div class="container-narrow">
-    <div class="logo-banner fade-in">
-      <div class="logo-line logo-line-left">
-        <span class="line-icon">📐</span>
-        <span class="line-icon">⚡</span>
-        <span class="line-icon">🧪</span>
-        <span class="line-icon">🧬</span>
-        <span class="line-icon">💻</span>
-      </div>
+    <div class="text-center fade-in" style="margin-bottom: 2.5rem;">
       <div class="logo-stage">
         <div class="logo-ring"></div>
         <div class="logo-ring logo-ring-2"></div>
         <div class="logo-glow"></div>
         <img src="./static/images/logo_showcase.png" alt="GRADE Logo" class="showcase-logo">
-      </div>
-      <div class="logo-line logo-line-right">
-        <span class="line-icon">📊</span>
-        <span class="line-icon">📜</span>
-        <span class="line-icon">🌍</span>
-        <span class="line-icon">🎵</span>
-        <span class="line-icon">⚽</span>
       </div>
     </div>
     <div class="section-header fade-in">
