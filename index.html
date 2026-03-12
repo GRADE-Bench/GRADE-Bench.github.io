@@ -246,77 +246,102 @@
     .logo-side {
       flex: 1;
       position: relative;
-      height: 80px;
+      height: 140px;
       overflow: hidden;
     }
-    /* Multiple gradient lines */
+    /* Five gradient lines - spread out */
     .logo-side .side-line {
       position: absolute;
       left: 0; right: 0;
       height: 1px;
     }
-    .logo-side-left .side-line { right: 0; }
-    .logo-side-right .side-line { left: 0; }
     .logo-side-left .line-1 {
-      top: 28px;
-      background: linear-gradient(90deg, transparent 5%, rgba(59,130,246,0.12) 50%, rgba(59,130,246,0.35));
+      top: 18px;
+      background: linear-gradient(90deg, transparent 10%, rgba(245,158,11,0.08) 50%, rgba(245,158,11,0.22));
     }
     .logo-side-left .line-2 {
-      top: 40px;
-      background: linear-gradient(90deg, transparent 15%, rgba(139,92,246,0.08) 55%, rgba(139,92,246,0.25));
+      top: 42px;
+      background: linear-gradient(90deg, transparent 5%, rgba(59,130,246,0.1) 45%, rgba(59,130,246,0.35));
     }
     .logo-side-left .line-3 {
-      top: 52px;
-      background: linear-gradient(90deg, transparent 25%, rgba(16,185,129,0.06) 60%, rgba(16,185,129,0.2));
+      top: 70px;
+      background: linear-gradient(90deg, transparent 0%, rgba(139,92,246,0.08) 40%, rgba(139,92,246,0.28));
+    }
+    .logo-side-left .line-4 {
+      top: 96px;
+      background: linear-gradient(90deg, transparent 8%, rgba(16,185,129,0.08) 50%, rgba(16,185,129,0.25));
+    }
+    .logo-side-left .line-5 {
+      top: 120px;
+      background: linear-gradient(90deg, transparent 15%, rgba(239,68,68,0.06) 55%, rgba(239,68,68,0.18));
     }
     .logo-side-right .line-1 {
-      top: 28px;
-      background: linear-gradient(90deg, rgba(59,130,246,0.35), rgba(59,130,246,0.12) 50%, transparent 95%);
+      top: 18px;
+      background: linear-gradient(90deg, rgba(245,158,11,0.22), rgba(245,158,11,0.08) 50%, transparent 90%);
     }
     .logo-side-right .line-2 {
-      top: 40px;
-      background: linear-gradient(90deg, rgba(139,92,246,0.25), rgba(139,92,246,0.08) 45%, transparent 85%);
+      top: 42px;
+      background: linear-gradient(90deg, rgba(59,130,246,0.35), rgba(59,130,246,0.1) 55%, transparent 95%);
     }
     .logo-side-right .line-3 {
-      top: 52px;
-      background: linear-gradient(90deg, rgba(16,185,129,0.2), rgba(16,185,129,0.06) 40%, transparent 75%);
+      top: 70px;
+      background: linear-gradient(90deg, rgba(139,92,246,0.28), rgba(139,92,246,0.08) 60%, transparent);
     }
-    /* Floating discipline icons on the lines */
+    .logo-side-right .line-4 {
+      top: 96px;
+      background: linear-gradient(90deg, rgba(16,185,129,0.25), rgba(16,185,129,0.08) 50%, transparent 92%);
+    }
+    .logo-side-right .line-5 {
+      top: 120px;
+      background: linear-gradient(90deg, rgba(239,68,68,0.18), rgba(239,68,68,0.06) 45%, transparent 85%);
+    }
+    /* Floating discipline icons */
     .logo-side .side-icon {
       position: absolute;
-      font-size: 0.95rem;
+      font-size: 1rem;
       opacity: 0;
-      animation: iconDrift 4s ease-in-out infinite;
     }
-    .logo-side-left .side-icon { animation-name: iconDriftLeft; }
-    .logo-side-right .side-icon { animation-name: iconDriftRight; }
+    .logo-side-left .side-icon { animation: iconDriftLeft 5s ease-in-out infinite; }
+    .logo-side-right .side-icon { animation: iconDriftRight 5s ease-in-out infinite; }
     @keyframes iconDriftLeft {
-      0%   { opacity: 0; transform: translateX(30px); }
-      15%  { opacity: 0.55; }
-      85%  { opacity: 0.55; }
-      100% { opacity: 0; transform: translateX(-20px); }
+      0%   { opacity: 0; transform: translateX(25px) scale(0.8); }
+      12%  { opacity: 0.6; transform: translateX(0) scale(1); }
+      88%  { opacity: 0.6; transform: translateX(-15px) scale(1); }
+      100% { opacity: 0; transform: translateX(-25px) scale(0.8); }
     }
     @keyframes iconDriftRight {
-      0%   { opacity: 0; transform: translateX(-30px); }
-      15%  { opacity: 0.55; }
-      85%  { opacity: 0.55; }
-      100% { opacity: 0; transform: translateX(20px); }
+      0%   { opacity: 0; transform: translateX(-25px) scale(0.8); }
+      12%  { opacity: 0.6; transform: translateX(0) scale(1); }
+      88%  { opacity: 0.6; transform: translateX(15px) scale(1); }
+      100% { opacity: 0; transform: translateX(25px) scale(0.8); }
     }
-    /* Icon positions - left side */
-    .logo-side-left .icon-1 { right: 12%; top: 14px; animation-delay: 0s; animation-duration: 5s; }
-    .logo-side-left .icon-2 { right: 32%; top: 32px; animation-delay: 0.8s; animation-duration: 4.5s; }
-    .logo-side-left .icon-3 { right: 52%; top: 10px; animation-delay: 1.6s; animation-duration: 5.5s; }
-    .logo-side-left .icon-4 { right: 70%; top: 44px; animation-delay: 2.2s; animation-duration: 4.8s; }
-    .logo-side-left .icon-5 { right: 88%; top: 24px; animation-delay: 3s; animation-duration: 5.2s; }
-    /* Icon positions - right side */
-    .logo-side-right .icon-1 { left: 12%; top: 14px; animation-delay: 0.3s; animation-duration: 5s; }
-    .logo-side-right .icon-2 { left: 32%; top: 38px; animation-delay: 1.1s; animation-duration: 4.5s; }
-    .logo-side-right .icon-3 { left: 52%; top: 16px; animation-delay: 1.9s; animation-duration: 5.5s; }
-    .logo-side-right .icon-4 { left: 70%; top: 44px; animation-delay: 2.5s; animation-duration: 4.8s; }
-    .logo-side-right .icon-5 { left: 88%; top: 26px; animation-delay: 3.3s; animation-duration: 5.2s; }
+    /* Left icons - 8 icons spread across lines */
+    .logo-side-left .icon-1  { right: 8%;  top: 6px;   animation-delay: 0s;   animation-duration: 5.5s; }
+    .logo-side-left .icon-2  { right: 28%; top: 28px;  animation-delay: 0.6s; animation-duration: 5s; }
+    .logo-side-left .icon-3  { right: 50%; top: 8px;   animation-delay: 1.3s; animation-duration: 6s; }
+    .logo-side-left .icon-4  { right: 72%; top: 32px;  animation-delay: 2s;   animation-duration: 5.2s; }
+    .logo-side-left .icon-5  { right: 15%; top: 56px;  animation-delay: 0.4s; animation-duration: 5.8s; }
+    .logo-side-left .icon-6  { right: 42%; top: 58px;  animation-delay: 1.8s; animation-duration: 4.8s; }
+    .logo-side-left .icon-7  { right: 65%; top: 82px;  animation-delay: 2.6s; animation-duration: 5.4s; }
+    .logo-side-left .icon-8  { right: 88%; top: 60px;  animation-delay: 3.2s; animation-duration: 5s; }
+    .logo-side-left .icon-9  { right: 20%; top: 84px;  animation-delay: 1s;   animation-duration: 5.6s; }
+    .logo-side-left .icon-10 { right: 55%; top: 106px; animation-delay: 2.8s; animation-duration: 5.3s; }
+    /* Right icons - 8 icons spread across lines */
+    .logo-side-right .icon-1  { left: 8%;  top: 6px;   animation-delay: 0.2s; animation-duration: 5.5s; }
+    .logo-side-right .icon-2  { left: 30%; top: 30px;  animation-delay: 0.9s; animation-duration: 5s; }
+    .logo-side-right .icon-3  { left: 52%; top: 10px;  animation-delay: 1.5s; animation-duration: 6s; }
+    .logo-side-right .icon-4  { left: 75%; top: 34px;  animation-delay: 2.3s; animation-duration: 5.2s; }
+    .logo-side-right .icon-5  { left: 15%; top: 58px;  animation-delay: 0.5s; animation-duration: 5.8s; }
+    .logo-side-right .icon-6  { left: 45%; top: 56px;  animation-delay: 1.7s; animation-duration: 4.8s; }
+    .logo-side-right .icon-7  { left: 68%; top: 84px;  animation-delay: 2.4s; animation-duration: 5.4s; }
+    .logo-side-right .icon-8  { left: 90%; top: 62px;  animation-delay: 3.1s; animation-duration: 5s; }
+    .logo-side-right .icon-9  { left: 22%; top: 86px;  animation-delay: 1.2s; animation-duration: 5.6s; }
+    .logo-side-right .icon-10 { left: 58%; top: 108px; animation-delay: 2.9s; animation-duration: 5.3s; }
     @media (max-width: 640px) {
-      .logo-side .icon-4, .logo-side .icon-5 { display: none; }
-      .logo-side { height: 60px; }
+      .logo-side { height: 100px; }
+      .logo-side .icon-7, .logo-side .icon-8,
+      .logo-side .icon-9, .logo-side .icon-10 { display: none; }
+      .logo-side .line-5 { display: none; }
     }
 
     /* Center logo */
@@ -1087,11 +1112,18 @@
         <div class="side-line line-1"></div>
         <div class="side-line line-2"></div>
         <div class="side-line line-3"></div>
+        <div class="side-line line-4"></div>
+        <div class="side-line line-5"></div>
         <span class="side-icon icon-1">📐</span>
         <span class="side-icon icon-2">⚡</span>
         <span class="side-icon icon-3">🧪</span>
-        <span class="side-icon icon-4">🧬</span>
-        <span class="side-icon icon-5">💻</span>
+        <span class="side-icon icon-4">🔬</span>
+        <span class="side-icon icon-5">🧬</span>
+        <span class="side-icon icon-6">🧲</span>
+        <span class="side-icon icon-7">🔭</span>
+        <span class="side-icon icon-8">⚛️</span>
+        <span class="side-icon icon-9">📏</span>
+        <span class="side-icon icon-10">🧫</span>
       </div>
       <div class="logo-center">
         <img src="./static/images/logo_showcase.png" alt="GRADE Logo" class="showcase-logo">
@@ -1100,11 +1132,18 @@
         <div class="side-line line-1"></div>
         <div class="side-line line-2"></div>
         <div class="side-line line-3"></div>
-        <span class="side-icon icon-1">📊</span>
-        <span class="side-icon icon-2">📜</span>
-        <span class="side-icon icon-3">🌍</span>
-        <span class="side-icon icon-4">🎵</span>
-        <span class="side-icon icon-5">⚽</span>
+        <div class="side-line line-4"></div>
+        <div class="side-line line-5"></div>
+        <span class="side-icon icon-1">💻</span>
+        <span class="side-icon icon-2">📊</span>
+        <span class="side-icon icon-3">📜</span>
+        <span class="side-icon icon-4">🌍</span>
+        <span class="side-icon icon-5">🎵</span>
+        <span class="side-icon icon-6">⚽</span>
+        <span class="side-icon icon-7">🎨</span>
+        <span class="side-icon icon-8">♟️</span>
+        <span class="side-icon icon-9">🏛️</span>
+        <span class="side-icon icon-10">📈</span>
       </div>
     </div>
     <div class="section-header fade-in">
