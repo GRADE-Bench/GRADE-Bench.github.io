@@ -1541,12 +1541,14 @@ function copyCitation() {
       panel.appendChild(el);
 
       function launch() {
-        const speed = 2.5 + Math.random() * 2.5; // 2.5s - 5s
-        const y = rows[row] + (Math.random() * 12 - 6);  // slight vertical jitter
+        const speed = 3 + Math.random() * 3; // 3s - 6s
+        const y = rows[row] + (Math.random() * 12 - 6);
 
-        // Random start X: 0% ~ 60% from start edge
-        const startPct = Math.random() * 0.6;
+        // Random start position across the full panel width
+        const startPct = Math.random() * 0.85;
         const startX = startPct * panelW;
+        // Travel a moderate distance (30%-60% of panel), not to the edge
+        const travelDist = (0.3 + Math.random() * 0.3) * panelW;
 
         el.style.top = y + 'px';
         el.style.opacity = '0';
@@ -1554,37 +1556,31 @@ function copyCitation() {
         if (direction === 'right') {
           el.style.left = startX + 'px';
           el.style.right = 'auto';
-          el.style.transition = `transform ${speed}s linear, opacity 0.4s ease`;
-          el.style.transform = 'translateX(0)';
-          // Force reflow
-          void el.offsetWidth;
-          el.style.opacity = '0.55';
-          const travel = panelW - startX + 20;
-          el.style.transform = `translateX(${travel}px)`;
         } else {
-          // Left panel: icons also go right (towards the logo center)
           el.style.left = 'auto';
-          el.style.right = (panelW - startX) + 'px';
-          el.style.transition = `transform ${speed}s linear, opacity 0.4s ease`;
-          el.style.transform = 'translateX(0)';
-          void el.offsetWidth;
-          el.style.opacity = '0.55';
-          const travel = panelW - startX + 20;
-          el.style.transform = `translateX(-${travel}px)`;
+          el.style.right = startX + 'px';
         }
 
-        // Fade out near the end
+        el.style.transition = 'none';
+        el.style.transform = 'translateX(0)';
+        void el.offsetWidth;
+
+        const dx = direction === 'right' ? travelDist : -travelDist;
+        el.style.transition = `transform ${speed}s linear, opacity 0.5s ease`;
+        el.style.opacity = '0.55';
+        el.style.transform = `translateX(${dx}px)`;
+
+        // Fade out before reaching destination
         setTimeout(() => {
           el.style.opacity = '0';
-        }, (speed - 0.4) * 1000);
+        }, (speed - 0.5) * 1000);
 
         // Reset and relaunch
         setTimeout(() => {
           el.style.transition = 'none';
           el.style.transform = 'translateX(0)';
           el.style.opacity = '0';
-          // Stagger re-entry
-          setTimeout(launch, 200 + Math.random() * 800);
+          setTimeout(launch, 300 + Math.random() * 1000);
         }, speed * 1000);
       }
 
